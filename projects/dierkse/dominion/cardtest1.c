@@ -8,9 +8,7 @@
  */
 #include "dominion.h"
 #include "dominion_helpers.h"
-#include "dominion.c"
 #include "rngs.h"
-#include "rngs.c"
 #include <string.h>
 #include <stdio.h>
 #include <assert.h>
@@ -30,7 +28,7 @@ int main(){
 
 	printf ("TESTING initializeGame()\n");
 
-    for (int p = 1; p <= numPlayers; p++)
+    for (int p = 2; p <= numPlayers; p++)
     {
 
     #if (NOISY_TEST == 1)
@@ -40,11 +38,8 @@ int main(){
     	returnValue = initializeGame(p, k, seed, &G); //initialize new game
 
     	if(returnValue == -1){
-    		if(p == 1){ printf("Too Few Players: Success\n");}
-    		else{
-    			printf("Error: InitializeGame() didn't process");
-    			break;
-    		}
+    		printf("Error: InitializeGame() didn't process");
+    		break;
     			
     	}
 
@@ -130,7 +125,7 @@ int main(){
 
     	for(int i=0; i < p; i++){
     		if(i == 0){
-    			printf("\nPlayer 1: Hand Count = %d, expected = 5. ", G.handCount[i]);
+    			printf("\nPlayer 0: Hand Count = %d, expected = 5. ", G.handCount[i]);
     			if(G.handCount[i] == 5){ printf("SUCCESS\n");}
 				else{ printf("FAIL\n"); }
 				printf("Player 1: Total Cards = %d, expected = 13. ", G.handCount[i]+G.deckCount[i]);

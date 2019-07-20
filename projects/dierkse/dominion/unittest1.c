@@ -2,20 +2,17 @@
  * Unit test for BaronEffect()
  * Emily Dierks
  * CS362, Summer 2019
- * 
  *  
  * -----------------------------------------------------------------------
  */
 
 #include "dominion.h"
 #include "dominion_helpers.h"
-#include "dominion.c"
 #include <string.h>
 #include <stdio.h>
 #include <assert.h>
 #include <stdlib.h>
 #include "rngs.h"
-#include "rngs.c"
 #include <math.h>
 
 //e = 1 if have estate, s = 1 then supply

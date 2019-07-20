@@ -8,10 +8,8 @@
  */
 
 #include "dominion.h"
-#include "dominion.c"
 #include "dominion_helpers.h"
 #include "rngs.h"
-#include "rngs.c"
 #include <string.h>
 #include <stdio.h>
 #include <assert.h>

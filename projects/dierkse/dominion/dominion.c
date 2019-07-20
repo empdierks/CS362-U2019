@@ -1,6 +1,7 @@
 #include "dominion.h"
 #include "dominion_helpers.h"
 #include "rngs.h"
+#include "rngs.c"
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h>
@@ -894,6 +895,7 @@ int tributeEffect(struct gameState *state, int handPos, int currentPlayer, int n
 //choice1 = hand# of money to trash, choice2 = supply # of money to put in hand
 int mineEffect(struct gameState *state, int choice1, int choice2, int handPos, int currentPlayer) {
 
+	int j=0;
 	//int j = state->hand[currentPlayer][choice1];  //store card we will trash
 
 	//if chosen card less than copper or larger than gold then error
