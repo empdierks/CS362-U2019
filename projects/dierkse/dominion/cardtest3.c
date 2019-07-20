@@ -26,14 +26,13 @@ int main(){
 
 	printf ("TESTING endTurn()\n");
 
-	memset(&G, 23, sizeof(struct gameState)); //clear the game state
-    initializeGame(numPlayers, k, seed, &G); //initialize new game
+    	initializeGame(numPlayers, k, seed, &G); //initialize new game
 
     for (int turn = 0; turn <= 5; turn++){
 
     	NumDiscard = G.discardCount[currentPlayer];
 
-    	printf("Player Before endTurn(): expected %d, Result: %d. ", currentPlayer, G.whoseTurn);
+    	printf("Player Before endTurn(): expected %d, Result: %d. ", currentPlayer,G.whoseTurn );
 
     	endTurn(&G);
 

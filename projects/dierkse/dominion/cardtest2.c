@@ -1,7 +1,7 @@
 /* -----------------------------------------------------------------------
  * Unit test for shuffle()
- * 
- *
+ * Emily Dierks 
+ * CS362, Summer 2019
  * 
  *  
  * -----------------------------------------------------------------------
@@ -14,27 +14,27 @@
 #include "rngs.c"
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 
 int main(){
 
 	int seed = 1000;
-    int numPlayers = 4;
-    int currentPlayer = 0;
-    int k[10] = {adventurer, minion, feast, gardens, mine
+   	int numPlayers = 4;
+    	int currentPlayer = 0;
+    	int k[10] = {adventurer, minion, feast, gardens, mine
                , remodel, smithy, village, baron, great_hall};
 	struct gameState G, testG;
 	int successes;
 
 	printf ("TESTING shuffle()\n");
 
-	memset(&G, 23, sizeof(struct gameState)); //clear the game state
-    initializeGame(numPlayers, k, seed, &G); //initialize new game
+    	initializeGame(numPlayers, k, seed, &G); //initialize new game
 
-	memcpy(%testG, &G, sizeof(struct gameState));
+	memcpy(&testG, &G, sizeof(struct gameState));
 
-	printf("Starting Deck: ")
-	for(int i = 0; i < G.deckCount; i++){
+	printf("Starting Deck: ");
+	for(int i = 0; i < G.deckCount[0]; i++){
 		printf("%d | ", G.deck[0][i]);
 	}
 
@@ -49,9 +49,9 @@ int main(){
 	}
 
 	//if both decks do not match then a success
-	printf("Shuffled Deck: ")
+	printf("Shuffled Deck: ");
 
-	for(int i = 0; i < testG.deckCount; i++){
+	for(int i = 0; i < testG.deckCount[0]; i++){
 		printf("%d | ", testG.deck[0][i]);
 	}
 	printf("\n");

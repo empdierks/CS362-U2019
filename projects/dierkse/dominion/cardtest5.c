@@ -13,7 +13,7 @@
 #include "rngs.h"
 #include "rngs.c"
 #include <stdio.h>
-
+#include <string.h>
 
 int main(){
 
@@ -26,7 +26,6 @@ int main(){
 
     printf ("TESTING getWinners()\n");
 
-	memset(&G, 23, sizeof(struct gameState)); //clear the game state
     initializeGame(numPlayers, k, seed, &G); //initialize new game
 
     memcpy(&testG, &G, sizeof(struct gameState));
