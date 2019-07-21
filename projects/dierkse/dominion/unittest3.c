@@ -42,15 +42,15 @@ void testAmb(struct gameState *G, struct gameState *G2, int correctOpt, int amt)
 		if(G->supplyCount[ambassador] == G2->supplyCount[ambassador]){ printf("SUCCESS\n");}
 		else{ printf("FAIL\n"); }
 
-		//Test to see if Ambassador card goes to discard pile
-		printf("Ambassador Card to Discard: Expected value: %d, Result: %d. ", G->discardCount[0]+1, G2->discardCount[0]);
-		if(G->discardCount[0]+ 1 == G2->discardCount[0]){ printf("SUCCESS\n");}
+		//Test to see if Ambassador card doesn't go to discard pile
+		printf("Ambassador Card to Discard: Expected value: %d, Result: %d. ", G->discardCount[0], G2->discardCount[0]);
+		if(G->discardCount[0]  == G2->discardCount[0]){ printf("SUCCESS\n");}
 		else{ printf("FAIL\n"); }
 
 
-		//Test to see if handcount decreased by 1
-		printf("Ambassador Card Out of Hand: Expected value: %d, Result: %d. ", G->handCount[0]-1, G2->handCount[0]);
-		if(G->handCount[0]-1 == G2->handCount[0]){ printf("SUCCESS\n");}
+		//Test to see if handcount doesn't decrease by 1
+		printf("Ambassador Card Out of Hand: Expected value: %d, Result: %d. ", G->handCount[0], G2->handCount[0]);
+		if(G->handCount[0] == G2->handCount[0]){ printf("SUCCESS\n");}
 		else{ printf("FAIL\n"); }
 
 		//Test if other player's discard piles not affected
@@ -67,8 +67,8 @@ void testAmb(struct gameState *G, struct gameState *G2, int correctOpt, int amt)
 	}
 	else{
 		//Test change to smithy supply
-		printf("Smithy Card Supply: Expected value: %d, Result: %d. ", G->supplyCount[smithy] + amt, G2->supplyCount[smithy]);
-		if(G->supplyCount[smithy] + amt == G2->supplyCount[smithy]){ printf("SUCCESS\n");}
+		printf("Smithy Card Supply: Expected value: %d, Result: %d. ", (G->supplyCount[smithy] + amt)-3, G2->supplyCount[smithy]);
+		if((G->supplyCount[smithy] + amt)-3 == G2->supplyCount[smithy]){ printf("SUCCESS\n");}
 		else{ printf("FAIL\n"); }
 
 		//Test to see if Ambassador card goes to discard pile

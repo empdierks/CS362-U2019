@@ -149,7 +149,7 @@ int main(){
 	struct gameState G, testG;
 	int tributeRevealedCards[2] = {-1, -1};
 	
-	printf ("\n\nTesting AmbassadorEffect().\n");
+	printf ("\n\nTesting TributeEffect().\n");
 	initializeGame(numPlayers, k, seed, &G);  //initialize new game
 	memcpy(&testG, &G, sizeof(struct gameState));
 

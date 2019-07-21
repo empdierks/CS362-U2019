@@ -22,7 +22,7 @@ int main(){
                , remodel, smithy, village, baron, great_hall};
     struct gameState G, testG;
 
-    printf ("TESTING getWinners()\n");
+    printf ("TESTING drawCard()\n");
 
     initializeGame(numPlayers, k, seed, &G); //initialize new game
 
@@ -59,8 +59,8 @@ int main(){
 	if(G.handCount[0] + 1 == testG.handCount[0]){ printf("SUCCESS\n");}
 	else{ printf("FAIL\n"); }
 
-	printf("DeckCount: Expected value: %d, Result: %d. ", G.deckCount[0] - 1, testG.deckCount[0]);
-	if(G.deckCount[0] - 1 == testG.deckCount[0]){ printf("SUCCESS\n");}
+	printf("DeckCount: Expected value: %d, Result: %d. ", G.discardCount[0] - 1, testG.deckCount[0]);
+	if(G.discardCount[0] - 1 == testG.deckCount[0]){ printf("SUCCESS\n");}
 	else{ printf("FAIL\n"); }
 
 	printf("**END CARD TEST 5: drawCard() **\n\n");
