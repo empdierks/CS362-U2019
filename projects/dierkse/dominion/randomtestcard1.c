@@ -136,8 +136,12 @@ int main(){
 			G.supplyCount[j] = floor(Random()*10);
 		}
 	
-		if(n%2 == 0){
+		if(n%10 == 0){
 			G.supplyCount[estate] = 0;
+		}
+
+		if(n%2 == 0){
+			G.hand[currP][0] = estate;
 		}
 		//choice 1: 0 or 1
 		choice1 = floor(Random()*2);
