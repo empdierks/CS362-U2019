@@ -21,6 +21,24 @@ testBuyCard: testDrawCard.c dominion.o rngs.o
 testAll: dominion.o testSuite.c
 	gcc -o testSuite testSuite.c -g  dominion.o rngs.o $(CFLAGS)
 
+randomtestcard1: dominion.o rngs.o randomtestcard1.c
+	gcc -std=c99 -lm -fpic -coverage randomtestcard1.c dominion.c rngs.c -o randtest1
+
+randomtestcard2: dominion.o rngs.o randomtestcard2.c
+	gcc -std=c99 -lm -fpic -coverage randomtestcard2.c dominion.c rngs.c -o randtest2
+
+randomtests: randomtestcard1.c randomtestcard2.c randomtestcard3.c dominion.o rngs.o
+	gcc -std=c99 -lm -fpic -coverage randomtestcard1.c dominion.c -o randomtest1
+	gcc -std=c99 -lm -fpic -coverage randomtestcard2.c dominion.c -o randomtest2
+	gcc -std=c99 -lm -fpic -coverage randomtestcard3.c dominion.c -o randomtest3
+
+randomtestresults: randomtestcard1.c randomtestcard2.c randomtestcard3.c dominion.o rngs.o
+	./randomtest1 &> randomtestresults.out
+	./randomtest2 >> randomtestresults.out
+	./randomtest3 >> randomtestresults.out
+	gcov dominion.c -f >> randomtestresults.out
+	cat dominion.c.gcov >> randomtestresults.out
+ 
 interface.o: interface.h interface.c
 	gcc -c interface.c -g  $(CFLAGS)
 
