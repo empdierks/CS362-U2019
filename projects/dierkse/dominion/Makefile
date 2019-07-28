@@ -64,13 +64,13 @@ unittests: unittest1.c unittest2.c unittest3.c unittest4.c unittest5.c cardtest1
 	gcc -std=c99 -lm -fpic -coverage cardtest5.c dominion.c -o cardtest5
  
 unittestresults: unittest1.c unittest2.c unittest3.c unittest4.c unittest5.c cardtest1.c cardtest2.c cardtest3.c cardtest4.c cardtest5.c dominion.o
-	./unittest1 &> unittestresults.out
-	./unittest2 >> unittestresults.out
-	./unittest3 >> unittestresults.out
-	./unittest4 >> unittestresults.out
-	./unittest5 >> unittestresults.out
-	./cardtest1 >> unittestresults.out
-	./cardtest2 >> unittestresults.out
+	unittest1 &> unittestresults.out
+	unittest2 >> unittestresults.out
+	unittest3 >> unittestresults.out
+	unittest4 >> unittestresults.out
+	unittest5 >> unittestresults.out
+	cardtest1 >> unittestresults.out
+	cardtest2 >> unittestresults.out
 	cardtest3 >> unittestresults.out
 	cardtest4 >> unittestresults.out
 	cardtest5 >> unittestresults.out
