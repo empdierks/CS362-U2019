@@ -27,6 +27,9 @@ randomtestcard1: dominion.o rngs.o randomtestcard1.c
 randomtestcard2: dominion.o rngs.o randomtestcard2.c
 	gcc -std=c99 -lm -fpic -coverage randomtestcard2.c dominion.c rngs.c -o randtest2
 
+randomtestcard3: dominion.o rngs.o randomtestcard3.c
+	gcc -std=c99 -lm -fpic -coverage randomtestcard3.c dominion.c rngs.c -o randtest3
+
 randomtests: randomtestcard1.c randomtestcard2.c randomtestcard3.c dominion.o rngs.o
 	gcc -std=c99 -lm -fpic -coverage randomtestcard1.c dominion.c -o randomtest1
 	gcc -std=c99 -lm -fpic -coverage randomtestcard2.c dominion.c -o randomtest2
