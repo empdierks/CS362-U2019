@@ -6,8 +6,8 @@
  * -----------------------------------------------------------------------
  */
 
-#include "dominion.h"
-#include "dominion_helpers.h"
+#include "dominion_brenna.h"
+#include "dominion_helpers_brenna.h"
 #include <string.h>
 #include <stdio.h>
 #include <assert.h>
@@ -55,7 +55,7 @@ int main (){
 //Test choice1 = 1, player has estate --> rec 4 coins & thier estate card discarded
 	printf("Test choice1=1 and player has estate card\n");
 	setUpCards(&G, &testG, 1);
-	baronEffect(&testG, 1, 1, testG.whoseTurn);
+	baronEffect(1, 1, &testG);
 
 	//check if number of buys increased
 	printf("BUYS: Expected value: %d, Result: %d. ", G.numBuys + 1, testG.numBuys);
@@ -79,7 +79,7 @@ int main (){
 //Test choice1 = 1 but don't have estate, gain estate
 	printf("\n\nTest choice1=1 and player does not have estate card\n");
 	setUpCards(&G, &testG, 0);
-	baronEffect(&testG, 1, 1, testG.whoseTurn);
+	baronEffect(1, 1, &testG);
 
 	//Check if receive estate card & Baron card & Estate card gained were discarded
 	printf("ESTATE CARD SUPPLY: Expected value: %d, Result: %d. ", G.supplyCount[estate] - 1, testG.supplyCount[estate]);
@@ -97,7 +97,7 @@ int main (){
 //Test choice1 = 0, player has estate card shouldn't gain estate
 	printf("\n\nTest choice1=0 and player has estate card\n");
 	setUpCards(&G, &testG, 1);
-	baronEffect(&testG, 0, 1, testG.whoseTurn);
+	baronEffect(1, 0, &testG);
 
 	//Check if only discard Baron & don't get estate card into discard
 	printf("ESTATE CARD SUPPLY: Expected value: %d, Result: %d. ", G.supplyCount[estate], testG.supplyCount[estate]);
@@ -111,7 +111,7 @@ int main (){
 //Test choice1=0, player does not have estate card should gain estate card and decrement supply
 	printf("\n\nTest choice1=0, player doesn't have estate card\n");
 	setUpCards(&G, &testG, 0);
-	baronEffect(&testG, 0, 1, testG.whoseTurn);
+	baronEffect(1, 0, &testG);
 
 	//Check if only discard Baron & don't get estate card into discard
 	printf("ESTATE CARD SUPPLY: Expected value: %d, Result: %d. ", G.supplyCount[estate]-1, testG.supplyCount[estate]);
@@ -129,7 +129,7 @@ int main (){
 	G.supplyCount[estate] = 0; //set up for estate supply empty (game not over)
 	memcpy(&testG, &G, sizeof(struct gameState));
 
-	baronEffect(&testG, 0, 1, testG.whoseTurn);
+	baronEffect(1, 0, &testG);
 
 	//Check if only discard Baron & don't get estate card into discard
 	printf("ESTATE CARD SUPPLY: Expected value: %d, Result: %d. ", G.supplyCount[estate], testG.supplyCount[estate]);
@@ -150,7 +150,7 @@ int main (){
 	G.supplyCount[smithy] = 0;
 	memcpy(&testG, &G, sizeof(struct gameState));
 
-	baronEffect(&testG, 0, 1, testG.whoseTurn);
+	baronEffect(1, 0, &testG);
 
 	//Check if causes game over
 	printf("GAME OVER?: Expected value: %d, Result: %d. ", 1, isGameOver(&testG));

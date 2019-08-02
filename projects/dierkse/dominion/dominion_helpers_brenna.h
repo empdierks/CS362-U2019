@@ -1,7 +1,7 @@
-#ifndef _DOMINION_HELPERS_H
-#define _DOMINION_HELPERS_H
+#ifndef _DOMINION_HELPERS_BRENNA_H
+#define _DOMINION_HELPERS_BRENNA_H
 
-#include "dominion.h"
+#include "dominion_brenna.h"
 
 int drawCard(int player, struct gameState *state);
 int updateCoins(int player, struct gameState *state, int bonus);
